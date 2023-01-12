@@ -9,23 +9,23 @@ function alertaNumero() {
 }
 
 
-let tipoConsulta = prompt("Ingrese su tipo de consulta: Ventas, Atencion o Caja. Sino escriba Cerrar");
+let tipoConsulta = prompt ("Ingrese su tipo de consulta: Ventas, Atencion o Caja. Sino escriba Cerrar").toLowerCase();
 
-while( tipoConsulta !== "Cerrar"){ 
+while( tipoConsulta !== "cerrar"){ 
 
     switch(tipoConsulta){
 
-        case "Ventas":
+        case "ventas":
             tiempoEspera = 15;
             alertaNumero();
             break;
 
-        case "Atencion":
+        case "atencion":
             tiempoEspera = 10;
             alertaNumero();
             break;
 
-        case "Caja":
+        case "caja":
             tiempoEspera = 5;
             alertaNumero();
             break;
@@ -36,7 +36,7 @@ while( tipoConsulta !== "Cerrar"){
 
     }
 
-    tipoConsulta = prompt("Ingrese su tipo de consulta: Ventas, Atencion o Caja. Sino escriba Cerrar");
+    tipoConsulta = prompt("Ingrese su tipo de consulta: Ventas, Atencion o Caja. Sino escriba Cerrar").toLowerCase();
 
 }
 
