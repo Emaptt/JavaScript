@@ -1,9 +1,151 @@
+/* estilos universales */
 *{
     margin: 0;
     padding: 0;
+}
+
+body{
+    background-color: lightgray;
+}
+
+header{
+    background-color: lightblue;
 }
 
 h1{
     display: flex;
     justify-content: center;
 }
+
+.contacto{
+    padding: 15px;
+}
+
+.tituloContacto{
+    display: flex;
+    justify-content: center;
+}
+
+.textoContacto{
+    display: flex;
+    justify-content: center;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* estilos index */
+
+.barraBusqueda{
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.selectIndex{
+    padding: 15px;
+}
+
+.inputCantidad{
+
+    margin: 13px;
+    width: 200px;
+}
+
+.contenedorCarrusel{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* estilos pagina seleccion */
+
+.mainGrid{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.caracteristicas{
+    padding: 50px;
+}
+
+.cartasDeClases{
+    display: flex;
+    justify-content: space-around;
+} 
+
+.cantidadSelect{
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+}
+
+.selectCategoria{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.inputCantidadSeleccion{
+
+    margin: 20px;
+    width: 200px;
+}
+
+.btnAgregar{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.btnAgregarSeguro{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.seguro{
+    display:grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.selectSeguro{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.carrito{
+    border: 1px solid black;
+    border-radius: 3%;
+    display: grid;
+    grid-template-rows: 1fr 12fr 1fr;
+    margin: 10px;
+}
+
+.tituloCarrito{
+    display: flex;
+    justify-content: center;
+}
+
+.btnCarrito{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+
+}
+
+#btnCarro{
+    width: 40px;
+    height: 40px;
+}
+
+img{
+    object-fit: cover;
+    width:100%;
+    height:100%;
+  }

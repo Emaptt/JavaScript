@@ -1,80 +1,161 @@
-class Pax {
-    constructor (nombre, apellido, edad, dni) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.dni = dni;
-    } 
+// clases
+
+function Producto (tipo, cantidad,precio){
+    this.tipo = tipo;
+    this.cantidad = cantidad;
+    this.precio = precio;
 }
 
-function ingresarPax(){
+//funciones
 
-    for (let i=1; i<= cantidadPax; i++){
-        let nombre = prompt ("Ingrese el nombre de la persona " + i );
-        let apellido = prompt ("Ingrese el apellido de la persona " + i);
-        let edad = prompt ("Ingrese la edad de la persona " + i);
-        let dni = prompt ("Ingrese el número de documento de la persona " + i);
-    
-        personas.push (new Pax (nombre, apellido, edad, dni));
+function precioProducto (tipo) {
+    switch (tipo){
+        case "Ejecutivo": 
+            return 70;
+        
+        case "2da Clase":
+            return 150;
+
+        case "1ra Clase":
+            return 300;
+
+        case "Standard":
+            return 160;
+        
+        case "De Lujo":
+            return 240;
+
+        case "Suite":
+            return 350;
     }
 }
 
-function informacionArrayPax(){
-    
-    personas.forEach ( (persona) => {
-        alert (`Los datos ingresados son:
-    Nombre: ${persona.nombre} ${persona.apellido} 
-    Edad: ${persona.edad}
-    DNI: ${persona.dni}`)
-    })
-};
-
-
-const personas = []
-
-let cantidadPax = parseInt (prompt ("Ingrese con números la cantidad de personas que viajan"));
-
-ingresarPax();
-
-informacionArrayPax();
-
-let mensaje = prompt ("Si desea modificar los datos de alguna persona escriba volver, sino escriba continuar").toLowerCase();
-
-while (mensaje !== "continuar"){
-
-    switch (mensaje){
-
-        case "volver":
-            const personaAModificar = personas [(parseInt (prompt ("Ingrese el numero de la persona a modificar"))) - 1];
-
-            if (personas.indexOf (personaAModificar) == -1){
-
-                alert ("El numero de la persona no se encuentra en la lista");
-
-            } else {
-
-                personas.splice (personas.indexOf (personaAModificar), 1 );
-
-                cantidadPax = parseInt (prompt ("Ingrese con números la cantidad de personas que quiere agregar"));
-
-                ingresarPax();
-
-                informacionArrayPax()
-
-            }
-
-            break;
-
-        default:
-            alert ("Los datos ingresados son incorrectos, por favor intente nuevamente");
-            break;
-    }
-
-    mensaje = prompt ("Si desea modificar los datos de alguna persona escriba volver, sino escriba continuar").toLowerCase();
+function borrarCarro(){
+    carro.innerHTML = "";
+    total.innerHTML = "";
+   
 }
 
+function borrarArrays(){
+    productos =[];
+    preciosSumados =0;
+    localStorage.clear();
+}
 
-let cantidadHabitaciones = parseInt (prompt (`Ingrese en numeros la cantidad de habitaciones que desea reservar. 
-Puede ser entre ${Math.round(personas.length / 2)} o ${personas.length} ya que cada una tiene un cupo de 2 personas.`));
+function sumarPrecios(){
+    for (producto of productos) {
+        preciosSumados += producto.precio;
+    }
+    
+}
 
-alert (`Usted reservó ${cantidadHabitaciones} habitaciones para ${personas.length} personas`)
+function renderizarTabla(productos){
+    
+    borrarCarro();
+    
+    productos.forEach( (producto) => {
+
+        const tr = document.createElement("tr");
+        const tdCantidad= document.createElement("td");
+        const tdTipo = document.createElement("td");
+        const tdPrecio = document.createElement("td");
+        
+        tdCantidad.innerHTML =`${producto.cantidad} X`;
+        tdTipo.innerHTML = ` ${producto.tipo}`;
+        tdPrecio.innerHTML = `$${producto.precio}`;
+
+        tr.append (tdCantidad);
+        tr.append (tdTipo);
+        tr.append (tdPrecio);
+
+        carro.append (tr);
+    });
+    
+    preciosSumados=0;
+    const totalPrecio = document.createElement ("p");
+    sumarPrecios();
+    totalPrecio.innerHTML = `Total: $${preciosSumados}`;
+    total.append (totalPrecio);
+}
+
+function guardarCarro (){
+    localStorage.setItem("carro", JSON.stringify(productos));
+    console.log(productos);
+}
+
+function leerCarro(){
+    let carro = [];
+    let carrito = localStorage.getItem("carro");
+    if (carrito !== null){
+        carro = JSON.parse(carrito);
+    }
+
+    return carro;
+}
+
+// variables
+
+let tipoPasaje = document.getElementById("pasaje");
+let cantidadPasaje = document.getElementById("cantidadPasaje");
+let tipoHabitacion = document.getElementById("habitacion");
+let cantidadHabitacion = document.getElementById("cantidadHabitacion");
+let seguro = document.getElementById("seguro");
+const btnAgregarPasaje = document.getElementById("btnAddPasaje");
+const btnAgregarHabitacion = document.getElementById("btnAddHabitacion");
+const btnAgregarSeguro = document.getElementById("btnAddSeguro");
+const btnBorrar = document.getElementById("btnBorrar");
+const btnComprar = document.getElementById("btnComprar")
+const carro = document.getElementById("carroProductos");
+const total = document.getElementById("total");
+
+let preciosSumados=0;
+
+//inicio programa
+
+let productos = leerCarro();
+
+renderizarTabla(productos);
+
+btnAgregarPasaje.onclick = () => {
+    let tipo = tipoPasaje.value;
+    let cantidad = cantidadPasaje.value;
+    let precio = (precioProducto(tipo) * cantidad);
+
+    productos.push(new Producto (tipo,cantidad,precio));
+    renderizarTabla(productos);
+    guardarCarro();
+}
+
+btnAgregarHabitacion.onclick = () => {
+    let tipo = tipoHabitacion.value;
+    let cantidad = cantidadHabitacion.value;
+    let precio = (precioProducto(tipo) * cantidad);
+
+    productos.push(new Producto (tipo,cantidad,precio));
+    renderizarTabla(productos);
+    guardarCarro();
+}
+
+btnAgregarSeguro.onclick = () => {
+
+    switch (seguro.value){
+        case "true":
+            let tipo = "Seguro";
+            let cantidad = 1;
+            let precio = 200;
+
+            productos.push(new Producto (tipo,cantidad,precio));
+            renderizarTabla(productos);
+            guardarCarro();
+            break;
+
+        case"false":
+            break;
+    }
+}
+
+btnBorrar.onclick = () => {borrarCarro() ; borrarArrays()};
+
+btnComprar.onclick = () =>{ if(preciosSumados!==0){
+    swal("¡Compra exitosa!",`Compra realizada por un total de $${preciosSumados}`,"success") 
+} else {swal("Su carro esta vacío","Agregue productos al carrito y luego realice la compra","error")}};

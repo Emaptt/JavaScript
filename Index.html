@@ -14,7 +14,7 @@
 
         <header>
 
-            <h1>JavaScript</h1>
+            <h1>JS Viajes</h1>
 
             <!-- bgimg -->
 
@@ -22,7 +22,7 @@
 
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Home</a>
+                    <a class="navbar-brand" href="./Index.html">Home</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -39,6 +39,8 @@
                             </li>
                         </ul>
                     </div>
+
+                    <a href="./Html/PaginaSeleccion.html"><button type="button" id="btnCarro"><img src="./Img/carrito.png" alt=""></button></a>
                 </div>
             </nav>
 
@@ -46,65 +48,118 @@
 
         <main>
             <!-- barra busqueda -->
+            <div class="barraBusqueda">
 
-            <div class="search-sec">
-                <div class="container">
-                    <form>
-                        <div class="row no-gutters custom-search-input-2">
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <div class="custom-select-form">
-                                        <select class="w-100" name="city" id="city">
-                                            <option value="" selected>Seleccione la provincia</option>
-                                            <option value="Buenos Aires">Buenos Aires</option>
-                                            <option value="Mendoza">Mendoza</option>
-                                            <option value="Jujuy">Jujuy</option>
-                                            <option value="Salta">Salta</option>
-                                            <option value="Neuquen">Neuquen</option>
-                                            <option value="Santa Cruz">Santa Cruz</option>
-                                        </select>
-                                    </div>
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <input class="form-control search-slt" type="text" name="dates" placeholder="Seleccione fecha de entrada">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <input class="form-control search-slt" type="text" name="dates" placeholder="Seleccione fecha de salida">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="panel-dropdown">
-                                    <a href="#">Huéspedes<span class="qtyTotal">1</span></a>
-                                    <div class="panel-dropdown-content">
-                                        <div class="qtyButtons">
-                                            <label>Adultos</label>
-                                            <input type="text" name="qtyInput" value="1">
-                                        </div>
-                                        <div class="qtyButtons">
-                                            <label>Niños</label>
-                                            <input type="text" name="qtyInput" value="0">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <button type="submit" class="btn_search btn btn-danger wrn-btn ripple"><span>Buscar</span></button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="selectIndex">
+                    <label for="desde"> Desde </label>
+                    <select name="Provincias" id="desde" >
+                        <option disabled selected>Seleccione una provincia</option>
+                        <option value="buenosAires">Buenos Aires</option>
+                        <option value="catamarca">Catamarca</option>
+                        <option value="chaco">Chaco</option>
+                        <option value="chubut">Chubut</option>
+                        <option value="cordoba">Cordoba</option>
+                        <option value="corrientes">Corrientes</option>
+                        <option value="entreRios">Entre Rios</option>
+                        <option value="formosa">Formosa</option>
+                        <option value="jujuy">Jujuy</option>
+                        <option value="laPampa">La Pampa</option>
+                        <option value="laRioja">La Rioja</option>
+                        <option value="mendoza">Mendoza</option>
+                        <option value="misiones">Misiones</option>
+                        <option value="neuquen">Neuquen</option>
+                        <option value="rioNegro">Rio Negro</option>
+                        <option value="salta">Salta</option>
+                        <option value="sanJuan">San Juan</option>
+                        <option value="sanLuis">San Luis</option>
+                        <option value="santaCruz">Santa Cruz</option>
+                        <option value="santaFe">Santa Fe</option>
+                        <option value="santiagoDelEstero">Santiago Del Estero</option>
+                        <option value="tierraDelFuego">Tierra Del Fuego</option>
+                        <option value="tucuman">Tucuman</option>
+                    </select>
                 </div>
+
+                <div class="selectIndex">
+                    <label for="hasta"> Hasta </label>
+                    <select name="Provincias" id="hasta" >
+                        <option disabled selected>Seleccione una provincia</option>
+                        <option value="buenosAires">Buenos Aires</option>
+                        <option value="catamarca">Catamarca</option>
+                        <option value="chaco">Chaco</option>
+                        <option value="chubut">Chubut</option>
+                        <option value="cordoba">Cordoba</option>
+                        <option value="corrientes">Corrientes</option>
+                        <option value="entreRios">Entre Rios</option>
+                        <option value="formosa">Formosa</option>
+                        <option value="jujuy">Jujuy</option>
+                        <option value="laPampa">La Pampa</option>
+                        <option value="laRioja">La Rioja</option>
+                        <option value="mendoza">Mendoza</option>
+                        <option value="misiones">Misiones</option>
+                        <option value="neuquen">Neuquen</option>
+                        <option value="rioNegro">Rio Negro</option>
+                        <option value="salta">Salta</option>
+                        <option value="sanJuan">San Juan</option>
+                        <option value="sanLuis">San Luis</option>
+                        <option value="santaCruz">Santa Cruz</option>
+                        <option value="santaFe">Santa Fe</option>
+                        <option value="santiagoDelEstero">Santiago Del Estero</option>
+                        <option value="tierraDelFuego">Tierra Del Fuego</option>
+                        <option value="tucuman">Tucuman</option>
+                    </select>
+                </div>
+
+                <input class="inputCantidad" type="number" name="cantidadPax" placeholder="Cantidad de personas">
+
+                <input class="inputCantidad" type="number" name="cantidadHab" placeholder="Cantidad de habitaciones">
+
+                <a role="button" class="btn btn-primary" href="./Html/PaginaSeleccion.html">Buscar</a>
+
             </div>
-            <!-- 
-            carrusel
-            contacto -->
+
+            <!-- Carrusel -->
+
+            <div class="contenedorCarrusel">
+
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./Img/h1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item active">
+                        <img src="./Img/h2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item active">
+                        <img src="./Img/h3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
         </main>
+
+        <!--contacto -->
+
+        <div class="contacto">
+        
+            <div class="tituloContacto">
+                <h5>JS Viajes</h5>
+            </div>
+            <p class="textoContacto">Suipacha 1008 CP 1001, CABA, Argentina</p>
+            <p class="textoContacto">(+54 11) 4131-1881  jsviajes@gmail.com</p>
+        </div>
+
+        <!-- footer -->
 
         <footer>
             <p class="footer">

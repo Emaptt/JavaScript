@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+        <link rel="stylesheet" href="../CSS/main.css">
+        <title>JavaScript</title>
+    </head>
+
+    <body>
+
+        <header>
+
+            <h1>JS Viajes</h1>
+
+            <!-- bgimg -->
+
+            <!-- navbar -->
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../Index.html">Home</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Habitaciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Galería</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="/Html/PaginaSeleccion.html"><button type="button" id="btnCarro"><img src="../Img/carrito.png" alt=""></button></a>
+                </div>
+            </nav>
+
+        </header>
+
+        <main class="mainGrid">
+
+            <!-- cartas de clases -->
+
+            <section class="caracteristicas">
+
+                <h1>Elija sus preferencias</h1>
+
+                <div class="pasajes">
+
+                    <div class="cartasDeClases">
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                            Ejecutivo
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            </ul>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                            2da Clase
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            </ul>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                            1ra Clase
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="cantidadSelect">
+
+                        <div class="selectCategoria">
+                            <label for="pasaje"> Seleccione el tipo de pasaje:  </label>
+                            <select name="Categorias" id="pasaje">
+                                <option disabled selected>Seleccione una opción</option>
+                                <option value="Ejecutivo">Ejecutivo</option>
+                                <option value="2da Clase">2da Clase</option>
+                                <option value="1ra Clase">1ra Clase</option>
+                            </select>
+
+                        </div>
+
+                        <input class="inputCantidadSeleccion" type="number" name="cantidadPax" id="cantidadPasaje" placeholder="Cantidad de pasajes">
+
+                        <div class="btnAgregar">
+                            <button type="button" class="btn btn-warning" id="btnAddPasaje">Agregar al carrito</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="habitaciones">
+
+                    <div class="cartasDeClases">
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                            Standard
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            </ul>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                            De Lujo
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            </ul>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                            Suite
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="cantidadSelect">
+
+                        <div class="selectCategoria">
+                            <label for="habitacion"> Seleccione el tipo de habitación: </label>
+                            <select name="Categorias" id="habitacion" >
+                                <option disabled selected>Seleccione una opción</option>
+                                <option value="Standard">Standard</option>
+                                <option value="De Lujo">De Lujo</option>
+                                <option value="Suite">Suite</option>
+                            </select>
+                        </div>
+
+                        <input class="inputCantidadSeleccion" type="number" name="cantidadHab" id="cantidadHabitacion" placeholder="Cantidad de habitaciones">
+
+                        <div class="btnAgregar">
+                            <button type="button" class="btn btn-warning" id="btnAddHabitacion" >Agregar al carrito</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="seguro">
+
+                    <div class="textoSeguro">
+                        <h5>¿Desea incluir seguro de viaje?</h5>
+                        <p>Esto le permitira tener todas sus pertenencias ante cualquier inconveniente aseguradas todas sus vacaciones.</p>
+                    </div>
+
+                    <div class="selectSeguro">
+                        <select name="Seguro" id="seguro" >
+                            <option disabled selected>Seleccione una opción</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    
+                    <div class="btnAgregarSeguro">
+                        <button type="button" class="btn btn-warning" id="btnAddSeguro">Agregar al carrito</button>
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+
+            <section class="carrito">
+
+                <div class="tituloCarrito">
+                    <h3>Carro de compras</h3>
+                </div>
+
+                <div id="carroProductos">
+
+                </div>
+
+                <div id="total">
+
+                </div>
+
+                <div class="btnCarrito">
+                    <button type="button" class="btn btn-danger" id="btnBorrar">Borrar</button>
+                    <button type="button" class="btn btn-success" id="btnComprar">Comprar</button>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!--contacto -->
+
+        <div class="contacto">
+        
+            <div class="tituloContacto">
+                <h5>JS Viajes</h5>
+            </div>
+            <p class="textoContacto">Suipacha 1008 CP 1001, CABA, Argentina</p>
+            <p class="textoContacto">(+54 11) 4131-1881  jsviajes@gmail.com</p>
+        </div>
+
+        <!-- footer -->
+
+        <footer>
+            <p class="footer">
+                2022 Todos los derechos reservados
+            </p>
+        </footer>
+
+        <script src="../JavaScript/bootstrap.min.js"></script>
+        <script src="../JavaScript/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="../JavaScript/main.js"></script>
+
+    </body>
+
+</html>
