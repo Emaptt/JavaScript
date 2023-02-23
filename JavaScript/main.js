@@ -6,13 +6,13 @@ function Producto (tipo, cantidad,precio){
     this.precio = precio;
 }
 
-//funciones
+// funciones
 
 function precioProducto (tipo) {
     switch (tipo){
-        case "Ejecutivo": 
+        case "Ejecutivo":
             return 70;
-        
+
         case "2da Clase":
             return 150;
 
@@ -21,7 +21,7 @@ function precioProducto (tipo) {
 
         case "Standard":
             return 160;
-        
+
         case "De Lujo":
             return 240;
 
@@ -33,7 +33,7 @@ function precioProducto (tipo) {
 function borrarCarro(){
     carro.innerHTML = "";
     total.innerHTML = "";
-   
+
 }
 
 function borrarArrays(){
@@ -46,21 +46,43 @@ function sumarPrecios(){
     for (producto of productos) {
         preciosSumados += producto.precio;
     }
-    
+
+}
+
+function agregarAlCarro(tipo, cantidad, precio){
+    if (tipo !== "Seleccione una opción" && cantidad !== 0){
+
+        buscarEnArray(tipo, cantidad, precio);
+        renderizarTabla(productos);
+        guardarCarro();
+
+    } else { swal("Error","Verifique lo ingresado y vuelva a intentar","error")}
+}
+
+function renderizarTarifario(productos){
+
+    productos.forEach( (producto) => {
+
+        const p = document.createElement("p");
+
+        p.innerHTML = `<strong>${producto.tipo} </strong> $${producto.precio}`
+
+        pTarifario.append (p);
+    });
 }
 
 function renderizarTabla(productos){
-    
+
     borrarCarro();
-    
+
     productos.forEach( (producto) => {
 
         const tr = document.createElement("tr");
         const tdCantidad= document.createElement("td");
         const tdTipo = document.createElement("td");
         const tdPrecio = document.createElement("td");
-        
-        tdCantidad.innerHTML =`${producto.cantidad} X`;
+
+        tdCantidad.innerHTML =`${producto.cantidad}`;
         tdTipo.innerHTML = ` ${producto.tipo}`;
         tdPrecio.innerHTML = `$${producto.precio}`;
 
@@ -70,9 +92,9 @@ function renderizarTabla(productos){
 
         carro.append (tr);
     });
-    
+
     preciosSumados=0;
-    const totalPrecio = document.createElement ("p");
+    const totalPrecio = document.createElement ("h3");
     sumarPrecios();
     totalPrecio.innerHTML = `Total: $${preciosSumados}`;
     total.append (totalPrecio);
@@ -93,6 +115,37 @@ function leerCarro(){
     return carro;
 }
 
+function buscarEnArray(tipo, cantidad, precio){
+    if (productoExiste(tipo)){
+        productos[indexProducto(tipo)].cantidad += cantidad;
+        productos[indexProducto(tipo)].precio += precio;
+    } else { productos.push(new Producto (tipo,cantidad,precio)) }
+}
+
+function productoExiste(tipo){
+    let existe = false;
+
+    for (const producto of productos){
+        if (producto.tipo === tipo){
+            existe = true;
+            break;
+        }
+    }
+
+    return existe;
+}
+
+function indexProducto(tipo){
+    indiceProducto = 0
+    for (i=0; i < productos.length; i++){
+        if (productos[i].tipo === tipo){
+            indiceProducto = i;
+            break;
+        }
+    }
+
+    return indiceProducto;
+}
 // variables
 
 let tipoPasaje = document.getElementById("pasaje");
@@ -107,10 +160,15 @@ const btnBorrar = document.getElementById("btnBorrar");
 const btnComprar = document.getElementById("btnComprar")
 const carro = document.getElementById("carroProductos");
 const total = document.getElementById("total");
+const pTarifario = document.getElementById ("tarifario");
 
 let preciosSumados=0;
 
 //inicio programa
+
+fetch ("/productos.json")
+.then ((resp) => resp.json())
+.then((respuesta) => renderizarTarifario(respuesta));
 
 let productos = leerCarro();
 
@@ -118,44 +176,47 @@ renderizarTabla(productos);
 
 btnAgregarPasaje.onclick = () => {
     let tipo = tipoPasaje.value;
-    let cantidad = cantidadPasaje.value;
+    let cantidad = parseInt(cantidadPasaje.value);
     let precio = (precioProducto(tipo) * cantidad);
 
-    productos.push(new Producto (tipo,cantidad,precio));
-    renderizarTabla(productos);
-    guardarCarro();
+    agregarAlCarro(tipo, cantidad, precio);
 }
 
 btnAgregarHabitacion.onclick = () => {
     let tipo = tipoHabitacion.value;
-    let cantidad = cantidadHabitacion.value;
+    let cantidad = parseInt(cantidadHabitacion.value);
     let precio = (precioProducto(tipo) * cantidad);
 
-    productos.push(new Producto (tipo,cantidad,precio));
-    renderizarTabla(productos);
-    guardarCarro();
+    agregarAlCarro(tipo, cantidad, precio);
 }
 
 btnAgregarSeguro.onclick = () => {
 
-    switch (seguro.value){
+    if (!productoExiste("Seguro")){
+
+        switch (seguro.value){
         case "true":
             let tipo = "Seguro";
             let cantidad = 1;
             let precio = 200;
 
-            productos.push(new Producto (tipo,cantidad,precio));
-            renderizarTabla(productos);
-            guardarCarro();
+            agregarAlCarro(tipo, cantidad, precio);
             break;
 
         case"false":
             break;
-    }
+        }
+    } else {swal("Aviso","Solo puede agregar un seguro por viaje","info")}
+
+    
 }
 
 btnBorrar.onclick = () => {borrarCarro() ; borrarArrays()};
 
 btnComprar.onclick = () =>{ if(preciosSumados!==0){
-    swal("¡Compra exitosa!",`Compra realizada por un total de $${preciosSumados}`,"success") 
-} else {swal("Su carro esta vacío","Agregue productos al carrito y luego realice la compra","error")}};
+    swal("¡Compra exitosa!",`Compra realizada por un total de $${preciosSumados}`,"success");
+    borrarArrays();
+    borrarCarro();
+} else {
+    swal("Su carro esta vacío","Agregue productos al carrito y luego realice la compra","error")}};
+

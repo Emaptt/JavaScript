@@ -1,0 +1,19 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "Simulador de compra de turismo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emaptt/JavaScript.git"
+  },
+  "author": "Emanuel Panza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emaptt/JavaScript/issues"
+  },
+  "homepage": "https://github.com/Emaptt/JavaScript#readme"
+}

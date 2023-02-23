@@ -1,0 +1,38 @@
+[
+    {
+        "tipo": "Ejecutivo",
+        "precio": 70,
+        "cantidad": 0
+    },
+
+    {
+        "tipo": "2da Clase",
+        "precio": 150,
+        "cantidad": 0
+    },
+
+    {
+        "tipo": "1ra Clase",
+        "precio": 300,
+        "cantidad": 0
+    },
+
+    {
+        "tipo": "Standard",
+        "precio": 160,
+        "cantidad": 0
+    },
+
+    {
+        "tipo": "De Lujo",
+        "precio": 240,
+        "cantidad": 0
+    },
+
+    {
+        "tipo": "Suite",
+        "precio": 350,
+        "cantidad": 0
+    }
+
+]

@@ -14,11 +14,9 @@
 
         <header>
 
-            <h1>JS Viajes</h1>
-
-            <!-- bgimg -->
-
-            <!-- navbar -->
+            <div class="mainTitle">
+                <h1>JS Viajes</h1>
+            </div>
 
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
@@ -29,13 +27,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Habitaciones</a>
+                                <a class="nav-link" href=../Index.html#carouselExample>Galería</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Galería</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contacto</a>
+                                <a class="nav-link" href=../Index.html#contacto>Contacto</a>
                             </li>
                         </ul>
                     </div>
@@ -52,6 +47,11 @@
 
             <section class="caracteristicas">
 
+                <div id="tarifario">
+                    <h4>Tarifario:</h4>
+
+                </div>
+
                 <h1>Elija sus preferencias</h1>
 
                 <div class="pasajes">
@@ -63,9 +63,9 @@
                             Ejecutivo
                             </div>
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">Sin atencion a bordo</li>
+                            <li class="list-group-item">Abordo normal</li>
+                            <li class="list-group-item">Equipaje: 25kg</li>
                             </ul>
                         </div>
 
@@ -74,9 +74,9 @@
                             2da Clase
                             </div>
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">Con atencion a bordo</li>
+                            <li class="list-group-item">Abordo temprano</li>
+                            <li class="list-group-item">Equipaje: 50kg</li>
                             </ul>
                         </div>
 
@@ -85,9 +85,9 @@
                             1ra Clase
                             </div>
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">Con atencion a bordo y en aeropuerto</li>
+                            <li class="list-group-item">Primer abordo</li>
+                            <li class="list-group-item">Equipaje: 100kg</li>
                             </ul>
                         </div>
 
@@ -125,9 +125,9 @@
                             Standard
                             </div>
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">25 mts2</li>
+                            <li class="list-group-item">Check in normal</li>
+                            <li class="list-group-item">Desayuno no incluido</li>
                             </ul>
                         </div>
 
@@ -136,9 +136,9 @@
                             De Lujo
                             </div>
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">50 mts2</li>
+                            <li class="list-group-item">Early check in</li>
+                            <li class="list-group-item">Desayuno incluido</li>
                             </ul>
                         </div>
 
@@ -147,9 +147,9 @@
                             Suite
                             </div>
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">100 mts2</li>
+                            <li class="list-group-item">Early check in y Late check out</li>
+                            <li class="list-group-item">Desayuno continental</li>
                             </ul>
                         </div>
 
@@ -205,7 +205,16 @@
             <section class="carrito">
 
                 <div class="tituloCarrito">
-                    <h3>Carro de compras</h3>
+                    <h3>Carrito</h3>
+                </div>
+
+                
+                <div class="leyenda">
+                   
+                    <p>Cant.</p>
+                    <p>Item</p>
+                    <p>Precio</p>
+
                 </div>
 
                 <div id="carroProductos">
@@ -227,7 +236,7 @@
 
         <!--contacto -->
 
-        <div class="contacto">
+        <div id="contacto">
         
             <div class="tituloContacto">
                 <h5>JS Viajes</h5>

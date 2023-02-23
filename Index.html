@@ -14,11 +14,9 @@
 
         <header>
 
-            <h1>JS Viajes</h1>
-
-            <!-- bgimg -->
-
-            <!-- navbar -->
+            <div class="mainTitle">
+                <h1>JS Viajes</h1>
+            </div>
 
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
@@ -29,13 +27,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Habitaciones</a>
+                                <a class="nav-link" href=#carouselExample>Galería</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Galería</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contacto</a>
+                                <a class="nav-link" href=#contacto>Contacto</a>
                             </li>
                         </ul>
                     </div>
@@ -114,7 +109,7 @@
 
                 <input class="inputCantidad" type="number" name="cantidadHab" placeholder="Cantidad de habitaciones">
 
-                <a role="button" class="btn btn-primary" href="./Html/PaginaSeleccion.html">Buscar</a>
+                <a role="button" class="btn btn-warning" href="./Html/PaginaSeleccion.html">Buscar</a>
 
             </div>
 
@@ -124,15 +119,24 @@
 
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./Img/h1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item active">
-                        <img src="./Img/h2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item active">
-                        <img src="./Img/h3.jpg" class="d-block w-100" alt="...">
-                    </div>
+                        <div class="carousel-item active">
+                            <img src="./Img/1.avif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="./Img/2.avif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="./Img/3.avif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="./Img/4.avif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="./Img/5.avif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="./Img/6.avif" class="d-block w-100" alt="...">
+                        </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -150,7 +154,7 @@
 
         <!--contacto -->
 
-        <div class="contacto">
+        <div id="contacto">
         
             <div class="tituloContacto">
                 <h5>JS Viajes</h5>
